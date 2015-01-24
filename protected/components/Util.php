@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of Util
- *
- * @author Santiago Benítez <sbenitez@tradesystem.com.ec>
- */
 class Util {
 
     public static function Truncate($string, $limit, $break = ".", $pad = "...") {
@@ -23,7 +18,6 @@ class Util {
     }
 
     /**
-     * @author Alex Yepez <ayepez@tradesystem.com.ec>
      * @param array $elementos 
      * altera el valor en forma acendente desde 0 de una determinada columna
      * @return array $NewArray nuevo array con la columna 'id' con valores desde 0 a $elementos.length
@@ -62,7 +56,6 @@ class Util {
     }
 
     /**
-     * @author Alex Yepez <ayepez@tradesystem.com.ec>
      * retona la fecha actual del sistema
      * @return string
      */
@@ -74,7 +67,6 @@ class Util {
     }
 
     /**
-     * @author Alex Yepez <ayepez@tradesystem.com.ec>
      * @param type $fechaAt
      * @param type $tipo
      * @return string
@@ -171,7 +163,6 @@ class Util {
      * @param type $button
      * @param type $data
      * @return type
-     * @author Ivan Naranjo <inaranjo@tradesystem.com.ec>
      */
     public static function getGridViewId($options, $data) {
         foreach ($options as &$option) {
@@ -186,7 +177,6 @@ class Util {
     /**
      * // regresa la cadena sin subguiones("_"), y los convierte en espacios, ademas de poner letra capital
      * @param type $nomre
-     * @author Ivan Naranjo <inaranjo@tradesystem.com.ec>
      */
     public static function setName($nombre) {
         $nombre = str_replace('_', " ", $nombre);
@@ -199,7 +189,6 @@ class Util {
      * @param type $fCreacion
      * @param type $tIncidencia
      * @return type
-     * @author Ivan Naranjo <inaranjo@tradesystem.com.ec>
      */
     //TODO: Borrar en caso que ya no se utilice
     public static function semaforoUtil($fCreacion, $tIncidencia) {
@@ -220,7 +209,6 @@ class Util {
      * @param type $fCreacion
      * @param type $tIncidencia
      * @return type
-     * @author Ivan Naranjo <inaranjo@tradesystem.com.ec>
      */
     public static function semaforo($fGestion) {
         $tiempoDias = (strtotime($fGestion) - strtotime(date("Y-m-d H:i:s"))) / 86400;
@@ -248,7 +236,6 @@ class Util {
 
     /**
      * Retorna los años cercanos al año actual
-     * @author Santiago Benítez <sbenitez@tradesystem.com.ec>
      * @param type $yearsMin
      * @param type $yearsMax
      * @return array
@@ -264,7 +251,6 @@ class Util {
 
     /**
      * exporta una tabla a pdf
-     * @author Esteban Preciado <epreciado@tradesystem.com.ec>
      * @param type $pag_render
      * @param array $options
      * @param type $boolean
@@ -491,13 +477,69 @@ class Util {
 
         $colores = array("rgb(116,183,73)", "rgb(274,70,74)", "rgb(70,191,189)",
             "rgb(253,180,92)", "rgb(77,83,96)", "rgb(70,136,71)", "rgb(78,138,199)",
-            "rgb(119,128,138)", "rgb(243,123,83)", "rgb(13,174,211)", "rgb(148,159,167)","rgb(139,20,15)","rgb(222,87,123)");
+            "rgb(119,128,138)", "rgb(243,123,83)", "rgb(13,174,211)", "rgb(148,159,167)", "rgb(139,20,15)", "rgb(222,87,123)");
 
 
-    
-     shuffle($colores);
-  
-        return $colores ;
+
+        shuffle($colores);
+
+        return $colores;
+    }
+
+    public static function formatPrimeraMayuscula($string) {
+        return ucwords(strtolower($string));
+    }
+
+    public static function getMensajeMail($titulo = null, $mensaje = null) {
+        $titulo = 'sadmaslkd';
+        $mensaje = 'asdkasdlkasdkjalskdjlaksjdlkasdklaslkdaslkjda';
+        $fecha = self::FechaActual();
+        $cuerpo = '
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="center" valign="top" bgcolor="#726627" style="background-color:#726627;"><br/>
+                    <br/>
+                    <table width="600" border="0" cellspacing="0" cellpadding="0">              
+                            <tr>
+                            <td align="center" valign="top" bgcolor="#006c00" style="background-color:#006c00; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000000; border-radius: 10px 10px 0px 0px;"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+                                    <tr>
+                                        <td width="50%" align="left" valign="top" style="color:#ffffff; font-family:Verdana, Geneva, sans-serif; font-size:11px;">&nbsp;&nbsp;'
+                . $fecha
+                . '</td>
+                                    </tr>
+                                </table></td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" bgcolor="#ffffff" style="background-color:#ffffff; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000000; padding:12px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="10" style="margin-bottom:10px;">
+                                    <tr>
+                                        <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#525252;">
+                                            <div style="font-size:16px;">
+                                               <h2> <b>
+                                                    ' . $titulo . '
+                                                </b></h2>
+                                                </div>
+                                            <div>
+                                                ' . $mensaje . '
+                                                <br/>                                          
+                                            </div></td>
+                                    </tr>
+                                </table></td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top" bgcolor="#006c00" style="background-color:#006c00; border-radius: 0px 0px  10px 10px;"><table width="100%" border="0" cellspacing="0" cellpadding="15">
+                                    <tr>
+                                        <td align="left" valign="top" style="color:#ffffff; font-family:Arial, Helvetica, sans-serif; font-size:13px; ">                                           
+                                        </td>
+                                    </tr>
+                                </table></td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <br/></td>
+            </tr>
+        </table>';
+        return $cuerpo;
     }
 
 }
