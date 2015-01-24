@@ -292,7 +292,8 @@ class UiController extends Controller {
 
     public function actionRegistration($datakey = '') {
 
-        $this->layout = CrugeUtil::config()->registrationLayout;
+        $this->layout = '//layouts/registrar';
+//                CrugeUtil::config()->registrationLayout;
 
 
         $model = Yii::app()->user->um->createBlankUser();
@@ -1076,8 +1077,11 @@ class UiController extends Controller {
     }
 
     public function actionSessionAdminDelete($id) {
+//        var_dump($_POST);
+//        die();
         if (Yii::app()->request->isAjaxRequest) {
             $model = Yii::app()->user->um->loadSessionById($id);
+
             if ($model != null) {
                 $model->delete();
             }
