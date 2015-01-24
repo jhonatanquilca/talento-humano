@@ -6,17 +6,17 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'Aplicacion Base',
+    'name' => 'Geshum GRH',
     'language' => 'es',
     //Uncoment if you have a theme on folder themes
-//    'theme' => 'thin-admin',
+    'theme' => 'stilearn-metro',
     // preloading 'log' component
     'preload' => array(
         'log',
         'bootstrap'
     ),
     //Descomenta esta linea para tener un controlador por defecto
- 'defaultController' => 'principal/dashboard/index',
+    'defaultController' => 'principal/dashboard/index',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -25,13 +25,16 @@ return array(
         'application.modules.cruge.components.*',
         'application.modules.cruge.extensions.crugemailer.*',
     ),
+    'aliases' => array(
+        'xupload' => 'ext.xupload'
+    ),
     'modules' => array(
-// aqui pones tus modulos
-  'principal',
+// aqui pones tus modulos        
+        'principal',
         // uncomment the following to enable the Gii tool   
         'gii' => array(
             'class' => 'system.gii.GiiModule',
-            'password' => 'Enter Your Password Here',
+            'password' => '123456',
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array('127.0.0.1', '::1'),
             'generatorPaths' => array(
@@ -117,7 +120,8 @@ return array(
                 'AweCrud' => 'ext.AweCrud.messages', // AweCrud messages directory.
             ),
         ),
-        // uncomment the following to enable URLs in path-format        
+        // uncomment the following to enable URLs in path-format 
+        // url limpias        
         'urlManager' => array(
             'urlFormat' => 'path',
             'showScriptName' => false,
@@ -131,12 +135,20 @@ return array(
         ),
         // uncomment the following to use a MySQL database
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+            'connectionString' => 'mysql:host=localhost;dbname=mybdd',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
         ),
+        /* base de datos hostinget */
+//        'db' => array(
+//            'connectionString' => 'mysql:host=mysql.hostinger.co;dbname=',
+//            'emulatePrepare' => true,
+//            'username' => '',
+//            'password' => '',
+//            'charset' => 'utf8',
+//        ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
 //            'errorAction' => 'site/error',
@@ -165,7 +177,7 @@ return array(
         'crugemailer' => array(
             'class' => 'application.modules.cruge.components.CrugeMailer',
             'mailfrom' => 'email-desde-donde-quieres-enviar-los-mensajes@xxxx.com',
-            'subjectprefix' => 'Bliblioteca CRM - ',
+            'subjectprefix' => 'Geshum GRH - ',
             'debug' => true,
         ),
         'format' => array(
