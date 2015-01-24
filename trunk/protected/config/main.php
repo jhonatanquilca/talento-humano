@@ -24,6 +24,7 @@ return array(
         'ext.AweCrud.components.*', // AweCrud components
         'application.modules.cruge.components.*',
         'application.modules.cruge.extensions.crugemailer.*',
+        
     ),
     'aliases' => array(
         'xupload' => 'ext.xupload'
@@ -31,6 +32,7 @@ return array(
     'modules' => array(
 // aqui pones tus modulos        
         'principal',
+        'personal',
         // uncomment the following to enable the Gii tool   
         'gii' => array(
             'class' => 'system.gii.GiiModule',
