@@ -1,17 +1,15 @@
 <?php
 /** @var EmpleadoController $this */
 /** @var Empleado $model */
-
-
 ?>
 
 
 
-<?php 
-$this->header='<i class="aweso-dashboard aweso-2x"></i> '.  Yii::t('AweCrud.app', 'Manage') .' '. Empleado::label(2) ;
+<?php
+$this->header = '<i class="aweso-dashboard aweso-2x"></i> ' . Yii::t('AweCrud.app', 'Manage') . ' ' . Empleado::label(2);
 $this->menu = array(
-array('label' => Yii::t('AweCrud.app', 'List') . ' ' . Empleado::label(2), 'icon' => 'list', 'url' => array('index')),
-array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Empleado::label(), 'icon' => 'plus', 'url' => array('create')),
+//    array('label' => Yii::t('AweCrud.app', 'List') . ' ' . Empleado::label(2), 'icon' => 'list', 'url' => array('index')),
+    array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Empleado::label(), 'icon' => 'plus', 'url' => array('create')),
 );
 ?>
 
@@ -36,64 +34,64 @@ array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Empleado::label(), 'ico
             <!-- widget content -->
             <div class="widget-content bg-white">
                 <div style='overflow:auto'> 
-                    <?php                    //$this->widget('bootstrap.widgets.TbGridView',array(
-                    $this->widget('ext.selgridview.BootSelGridView',array(                    
-                    'id' => 'empleado-grid',
-                    'type' => 'striped bordered hover advance ', // striped bordered hover advance condensed
-                    'template' => '{summary}{items}{pager}',
-                    'dataProvider' => $model->search(),
-                    'pagerCssClass' => 'pagination text-center',
-                    'selectableRows' => 2,
-                    //'filter' => $model,
-                    'columns' => array(
-                                            'idempleado',
-                                                'nombre',
-                                                'apellido',
-                                                'direccion',
-                                                'telefono',
-                                                'correo',
-                                                    /*
-                                                'fechaIngreso',
-                                                'area',
-                                                'foto',
-                                                'horario_idhorario',
-                                                array(
-                    'name' => 'horario_idhorario1',
-                    'value' => 'isset($data->horarioIdhorario1) ? $data->horarioIdhorario1 : null',
-                    'filter' => CHtml::listData(Horario::model()->findAll(), 'idhorario', Horario::representingColumn()),
-                ),
-                                                */
-                                        array(
-                    //'class'=>'bootstrap.widgets.TbButtonColumn',
-                    'class'=>'CButtonColumn',
-                    'template' => '{view} {update} {delete}',
-                    'deleteConfirmation' => CrugeTranslator::t('admin', 'Are you sure you want to delete this user'),
-                    'buttons' => array(
-                    'view' => array(
-                    'label' => '<button class="btn btn-success"><i class="aweso-eye-open"></i></button>',
-                    'options' => array('title' => Yii::t('AweCrud.app', 'View')),
-                    // 'url' => 'array("tu-accion-del-controlador","id"=>$data->getPrimaryKey())',
-                    'imageUrl' => false,
-                    ),
-                    'update' => array(
-                    'label' => '<button class="btn btn-info"><i class="aweso-pencil"></i></button>',
-                    'options' => array('title' => Yii::t('AweCrud.app', 'Update')),
-                    // 'url' => 'array("tu-accion-del-controlador","id"=>$data->getPrimaryKey())',
-                    'imageUrl' => false,
-                    ),
-                    'delete' => array(
-                    'label' => '<button class="btn btn-danger"><i class="aweso-trash"></i></button>',
-                    'options' => array('title' => Yii::t('AweCrud.app','Delete')),
-                    // 'url' => 'array("tu-accion-del-controlador","id"=>$data->getPrimaryKey())',
-                    'imageUrl' => false,
-                    ),
-                    ),
-                    'htmlOptions' => array(
-                    'width' => '206px'
-                    )
-                    ),
-                    ),
-                    )); ?>
+                    <?php
+//$this->widget('bootstrap.widgets.TbGridView',array(
+                    $this->widget('ext.selgridview.BootSelGridView', array(
+                        'id' => 'empleado-grid',
+                        'type' => 'striped bordered hover advance ', // striped bordered hover advance condensed
+                        'template' => '{summary}{items}{pager}',
+                        'dataProvider' => $model->search(),
+                        'pagerCssClass' => 'pagination text-center',
+                        'selectableRows' => 2,
+                        //'filter' => $model,
+                        'columns' => array(
+//                            'idempleado',
+                            'nombre',
+                            'apellido',
+                            'direccion',
+                            'telefono',
+                            'correo',
+                            'fechaIngreso',
+                            'area',
+                            'foto',
+//                              'horario_idhorario',
+                            array(
+                                'name' => 'horario_idhorario1',
+                                'value' => 'isset($data->horarioIdhorario1) ? $data->horarioIdhorario1 : null',
+                                'filter' => CHtml::listData(Horario::model()->findAll(), 'idhorario', Horario::representingColumn()),
+                            ),
+                            array(
+                                //'class'=>'bootstrap.widgets.TbButtonColumn',
+                                'class' => 'CButtonColumn',
+                                'template' => '{update} {view} {delete}',
+                                'deleteConfirmation' => CrugeTranslator::t('admin', 'Are you sure you want to delete this user'),
+                                'buttons' => array(
+                                    'view' => array(
+                                        'label' => '<button class="btn btn-success"><i class="aweso-eye-open"></i></button>',
+                                        'options' => array('title' => Yii::t('AweCrud.app', 'View')),
+                                        // 'url' => 'array("tu-accion-del-controlador","id"=>$data->getPrimaryKey())',
+                                        'imageUrl' => false,
+                                    ),
+                                    'update' => array(
+                                        'label' => '<button class="btn btn-info"><i class="aweso-pencil"></i></button>',
+                                        'options' => array('title' => Yii::t('AweCrud.app', 'Update')),
+                                        // 'url' => 'array("tu-accion-del-controlador","id"=>$data->getPrimaryKey())',
+                                        'imageUrl' => false,
+                                    ),
+                                    'delete' => array(
+                                        'label' => '<button class="btn btn-danger"><i class="aweso-trash"></i></button>',
+                                        'options' => array('title' => Yii::t('AweCrud.app', 'Delete')),
+                                        // 'url' => 'array("tu-accion-del-controlador","id"=>$data->getPrimaryKey())',
+                                        'imageUrl' => false,
+                                    ),
+                                ),
+                                'htmlOptions' => array(
+                                    'width' => '206px'
+                                )
+                            ),
+                        ),
+                    ));
+                    ?>
                 </div>
             </div>
         </div>
